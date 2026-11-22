@@ -6,6 +6,11 @@ on:
     - cron: "17 0 * * *"
       timezone: Europe/Zurich
   workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS action context
+        required: false
+        type: string
 
 permissions:
   contents: read

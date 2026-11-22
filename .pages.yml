@@ -78,3 +78,9 @@ content:
         options:
           format: markdown
           media: false
+
+actions:
+  - name: publish-site
+    label: Website neu veröffentlichen
+    workflow: pages.yml
+    ref: main
