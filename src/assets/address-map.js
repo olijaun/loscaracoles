@@ -1,3 +1,13 @@
+function normalizeAddress(address) {
+  return address
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .normalize("NFKC")
+    .toLocaleLowerCase("de-CH")
+    .replace(/ß/g, "ss")
+    .replace(/[^\p{L}\p{N}]/gu, "");
+}
+
 const container = document.querySelector("[data-address-map]");
 const button = container.querySelector("button");
 const status = container.querySelector('[role="status"]');
@@ -13,15 +23,24 @@ button.addEventListener("click", async () => {
     search.search = new URLSearchParams({
       type: "locations",
       origins: "address",
-      searchText: container.dataset.address,
+      searchText: container.dataset.address.replace(/,/g, " ").replace(/\s+/g, " ").trim(),
       sr: "4326",
-      limit: "1",
+      limit: "5",
     });
     const response = await fetch(search, { signal: AbortSignal.timeout(8000) });
     if (!response.ok) throw new Error("Address lookup failed");
     const { results } = await response.json();
-    const { lat, lon } = results?.[0]?.attrs ?? {};
-    if (!Number.isFinite(lat) || !Number.isFinite(lon)) throw new Error("Address not found");
+    const address = normalizeAddress(container.dataset.address);
+    const match = results?.find(({ attrs }) =>
+      typeof attrs?.label === "string" && normalizeAddress(attrs.label) === address
+    );
+    if (!match) {
+      status.textContent = "Keine eindeutige Adresse gefunden. Nutze den Link zur Adresssuche.";
+      button.disabled = false;
+      return;
+    }
+    const { lat, lon } = match.attrs;
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) throw new Error("Address coordinates missing");
 
     const embed = new URL("https://www.openstreetmap.org/export/embed.html");
     embed.search = new URLSearchParams({
