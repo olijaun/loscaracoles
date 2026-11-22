@@ -11,7 +11,7 @@ layout: base.liquid
         {% if isPast %}
           <a class="back-link" href="{{ "/archiv/" | url }}">Zum Konzertarchiv</a>
         {% else %}
-          <a class="back-link" href="{{ "/konzerte/" | url }}">Kommende Konzerte</a>
+          <a class="back-link" href="{{ "/konzerte/" | url }}">Kommende Veranstaltungen</a>
         {% endif %}
         <h1>{{ title | escape }}</h1>
         <p class="detail-lead"><time datetime="{{ concertDay }}">{{ eventDate | concertDate }}</time>{% if eventTime and eventTime != empty %} · {{ eventTime | escape }} Uhr{% endif %}{% if doorsTime and doorsTime != empty %} · Türöffnung {{ doorsTime | escape }} Uhr{% endif %} · {{ venue | escape }}{% if address and address != empty %}<br>{{ address | escape }}{% endif %}</p>

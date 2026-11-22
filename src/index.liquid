@@ -15,7 +15,7 @@ permalink: /index.html
     <section id="programm" class="program" aria-labelledby="program-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="program-title">Kommende Konzerte</h2>
+          <h2 id="program-title">Kommende Veranstaltungen</h2>
           <a class="text-link" href="{{ "/konzerte/" | url }}">Alle Konzerte</a>
         </div>
         {% assign events = collections.concerts | upcoming: buildDate | slice: 0, 3 %}
@@ -39,12 +39,39 @@ permalink: /index.html
       <div class="wrap club-grid">
         <div><h2 id="join-title">Mach mit.</h2></div>
         <div>
-          <p>Werde Mitglied und unterstütze Flamenco in Bern. Im Newsletter erfährst du von unseren Veranstaltungen.</p>
+          <p>Werde Mitglied und unterstütze Flamenco in Bern.</p>
           <div class="actions">
-            <a class="button dark" href="https://www.loscaracoles.ch/mitgliedschaft/">Mitglied werden</a>
-            <a class="text-link" href="https://www.loscaracoles.ch/">Zum Newsletter</a>
+            <a class="button dark" href="{{ "/mitgliedschaft/" | url }}">Mitglied werden</a>
+            <a class="text-link" href="#newsletter">Newsletter abonnieren</a>
           </div>
         </div>
+      </div>
+    </section>
+    <section id="newsletter" class="program" aria-labelledby="newsletter-title">
+      <div class="wrap club-grid">
+        <div>
+          <h2 id="newsletter-title">Newsletter</h2>
+          <p>Erhalte Hinweise auf kommende Veranstaltungen von Los Caracoles per E-Mail.</p>
+        </div>
+        <form class="newsletter-form" method="post" action="https://loscaracoles.us16.list-manage.com/subscribe/post?u=98bc671d9deaf71246c076772&amp;id=d7547d6803&amp;f_id=009507e3f0">
+          <label for="newsletter-email">E-Mail-Adresse</label>
+          <input id="newsletter-email" type="email" name="EMAIL" autocomplete="email" required>
+          <div class="newsletter-names">
+            <div>
+              <label for="newsletter-first-name">Vorname (optional)</label>
+              <input id="newsletter-first-name" type="text" name="FNAME" autocomplete="given-name">
+            </div>
+            <div>
+              <label for="newsletter-last-name">Nachname (optional)</label>
+              <input id="newsletter-last-name" type="text" name="LNAME" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="newsletter-honeypot" aria-hidden="true">
+            <input type="text" name="b_98bc671d9deaf71246c076772_d7547d6803" tabindex="-1" autocomplete="off" value="">
+          </div>
+          <button class="button copper" type="submit" name="subscribe" value="Subscribe">Newsletter abonnieren</button>
+          <p>Die Anmeldung wird über Mailchimp verarbeitet.</p>
+        </form>
       </div>
     </section>
   </main>

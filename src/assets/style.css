@@ -130,3 +130,14 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 .concert-map { margin-top: 2.5rem; }
 .concert-map h2 { font-size: clamp(2rem, 3.7vw, 3.4rem); margin-bottom: 1rem; }
 .concert-map iframe { display: block; width: 100%; height: clamp(16rem, 45vw, 23rem); border: 1px solid var(--divider); }
+
+.membership h3 { font-size: clamp(1.55rem, 3vw, 2.3rem); margin: 2rem 0 .6rem; }
+
+.newsletter-form { display: grid; gap: .75rem; }
+.newsletter-form label { display: block; font-weight: 700; }
+.newsletter-form input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--divider); background: white; color: var(--ink); font: inherit; }
+.newsletter-form button { justify-self: start; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.newsletter-form p { margin: 0; font-size: .875rem; }
+.newsletter-names { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: .75rem; }
+.newsletter-names div { display: grid; gap: .35rem; }
+.newsletter-honeypot { position: absolute; left: -5000px; width: 1px; }

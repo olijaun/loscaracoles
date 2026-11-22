@@ -3,7 +3,7 @@ title: Testkonzert
 eventDate: 2026-11-22
 eventTime: 18:00
 doorsTime: 17:00
-venue: Oliver
+venue: Bei Oliver zu Hause
 address: Monbijoustrasse 71, 3007 Bern
 image: /media/mwrrcf8s-pk0mku4k.png
 ticketUrl: http://eventfrog.ch

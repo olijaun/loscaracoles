@@ -1,5 +1,5 @@
 <div data-upcoming-concerts>
   {% include "event-list.liquid", upcoming: true %}
-  <p data-no-concerts{% if events.size > 0 %} hidden{% endif %}>Zurzeit sind keine kommenden Konzerte angekündigt. {% if page.url != "/konzerte/" or events.size == 0 %}<a href="{{ "/archiv/" | url }}">Zum Archiv</a>{% endif %}</p>
+  <p data-no-concerts{% if events.size > 0 %} hidden{% endif %}>Zurzeit sind keine kommenden Veranstaltungen angekündigt. {% if page.url != "/konzerte/" or events.size == 0 %}<a href="{{ "/archiv/" | url }}">Zum Archiv</a>{% endif %}</p>
 </div>
 <script type="module" src="{{ "/assets/upcoming.js" | url }}"></script>

@@ -34,13 +34,13 @@ A manual workflow run can refresh the site and archive whenever needed.
    direct publishing.
 2. Invite editors in the CMS. Email invitations for editors without GitHub accounts
    depend on the Pages CMS hosting plan.
-3. Select **Konzerte**, create an entry, fill out the form and save. The save
+3. Select **Veranstaltungen**, create an entry, fill out the form and save. The save
    commits a Markdown file and triggers a site build.
 
 Use the concert date and venue in Bern, a 24-hour start time such as `20:00`,
 and an external ticket URL. Add an alternative text if the image conveys
 information. The seed entries are three past concerts from the 2026 festival.
 
-The membership, newsletter, statutes and imprint links currently point to the
-existing site. Before switching `loscaracoles.ch` to this site, transfer those
-pages or give the links independent destinations.
+The homepage newsletter form submits directly to Mailchimp. The statutes PDF still
+points to the existing site. Transfer it before switching `loscaracoles.ch`
+to this site.

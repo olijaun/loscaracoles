@@ -5,8 +5,8 @@ media:
   extensions: [jpg, jpeg, png, webp]
 
 content:
-  - name: concerts
-    label: Konzerte
+  - name: events
+    label: Veranstaltungen
     type: collection
     path: src/concerts
     format: yaml-frontmatter
@@ -20,7 +20,7 @@ content:
       order: desc
     fields:
       - name: title
-        label: Konzerttitel
+        label: Veranstaltungstitel
         type: string
         required: true
       - name: eventDate
@@ -60,7 +60,7 @@ content:
         type: string
         pattern: '^(-?[0-9]+(\.[0-9]+)?)?$'
       - name: image
-        label: Konzertbild
+        label: Veranstaltungsbild
         type: image
       - name: imageAlt
         label: Alternativtext zum Bild
