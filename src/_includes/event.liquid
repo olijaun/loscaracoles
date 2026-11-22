@@ -40,8 +40,15 @@ layout: base.liquid
           {% assign east = mapLongitude | plus: 0.003 %}
           <section class="concert-map" aria-labelledby="anreise">
             <h2 id="anreise">Anreise</h2>
-            <iframe title="OpenStreetMap: {{ venue | escape }}" loading="lazy"
-              src="https://www.openstreetmap.org/export/embed.html?bbox={{ west }},{{ south }},{{ east }},{{ north }}&amp;layer=mapnik&amp;marker={{ mapLatitude | escape }},{{ mapLongitude | escape }}"></iframe>
+            <div data-event-map>
+              <button class="button copper" type="button" hidden>Karte anzeigen</button>
+              <p data-map-notice hidden>Beim Laden der Karte wird deine IP-Adresse an OpenStreetMap übermittelt.</p>
+              <template>
+                <iframe title="OpenStreetMap: {{ venue | escape }}" referrerpolicy="no-referrer"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox={{ west }},{{ south }},{{ east }},{{ north }}&amp;layer=mapnik&amp;marker={{ mapLatitude | escape }},{{ mapLongitude | escape }}"></iframe>
+              </template>
+            </div>
+            <script type="module" src="{{ "/assets/event-map.js" | url }}"></script>
             <p><a href="https://www.openstreetmap.org/?mlat={{ mapLatitude | escape }}&amp;mlon={{ mapLongitude | escape }}#map=17/{{ mapLatitude | escape }}/{{ mapLongitude | escape }}">Grössere Karte auf OpenStreetMap</a>
               · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap-Mitwirkende</a></p>
           </section>
