@@ -7,6 +7,7 @@ const filters = {};
 const collections = {};
 configure({
   addPassthroughCopy() {},
+  addLiquidFilter() {},
   addGlobalData() {},
   addFilter(name, handler) { filters[name] = handler; },
   addCollection(name, handler) { collections[name] = handler; },

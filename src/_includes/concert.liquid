@@ -23,27 +23,29 @@ layout: base.liquid
           <img class="concert-image" src="{{ image | url | escape }}" alt="{{ imageAlt | default: "" | escape }}">
         {% endif %}
         {{ content }}
-        {% if latitude and longitude and latitude != empty and longitude != empty %}
-          {% assign south = latitude | minus: 0.0018 %}
-          {% assign north = latitude | plus: 0.0018 %}
-          {% assign west = longitude | minus: 0.003 %}
-          {% assign east = longitude | plus: 0.003 %}
+        {% assign mapLatitude = latitude %}
+        {% assign mapLongitude = longitude %}
+        {% if mapLatitude == nil or mapLongitude == nil or mapLatitude == empty or mapLongitude == empty %}
+          {% assign location = address | lookupAddress %}
+          {% assign mapLatitude = location.latitude %}
+          {% assign mapLongitude = location.longitude %}
+        {% endif %}
+        {% if mapLatitude and mapLongitude and mapLatitude != empty and mapLongitude != empty %}
+          {% assign south = mapLatitude | minus: 0.0018 %}
+          {% assign north = mapLatitude | plus: 0.0018 %}
+          {% assign west = mapLongitude | minus: 0.003 %}
+          {% assign east = mapLongitude | plus: 0.003 %}
           <section class="concert-map" aria-labelledby="anreise">
             <h2 id="anreise">Anreise</h2>
             <iframe title="OpenStreetMap: {{ venue | escape }}" loading="lazy"
-              src="https://www.openstreetmap.org/export/embed.html?bbox={{ west }},{{ south }},{{ east }},{{ north }}&amp;layer=mapnik&amp;marker={{ latitude | escape }},{{ longitude | escape }}"></iframe>
-            <p><a href="https://www.openstreetmap.org/?mlat={{ latitude | escape }}&amp;mlon={{ longitude | escape }}#map=17/{{ latitude | escape }}/{{ longitude | escape }}">Grössere Karte auf OpenStreetMap</a>
+              src="https://www.openstreetmap.org/export/embed.html?bbox={{ west }},{{ south }},{{ east }},{{ north }}&amp;layer=mapnik&amp;marker={{ mapLatitude | escape }},{{ mapLongitude | escape }}"></iframe>
+            <p><a href="https://www.openstreetmap.org/?mlat={{ mapLatitude | escape }}&amp;mlon={{ mapLongitude | escape }}#map=17/{{ mapLatitude | escape }}/{{ mapLongitude | escape }}">Grössere Karte auf OpenStreetMap</a>
               · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap-Mitwirkende</a></p>
           </section>
         {% elsif address and address != empty %}
           <section class="concert-map" aria-labelledby="anreise">
             <h2 id="anreise">Anreise</h2>
-            <div data-address-map="{{ address | escape }}" data-venue="{{ venue | escape }}">
-              <button class="button copper" type="button" hidden>Karte anzeigen</button>
-              <p role="status" hidden></p>
-            </div>
             <p><a href="https://www.openstreetmap.org/search?query={{ address | url_encode }}">Adresse auf OpenStreetMap suchen</a></p>
-            <script type="module" src="{{ "/assets/address-map.js" | url }}"></script>
           </section>
         {% endif %}
         {% if ticketUrl and ticketUrl != empty and isPast == false %}

@@ -1,6 +1,8 @@
+import { lookupAddress } from "./lib/address-map.js";
 import { bernDate } from "./src/assets/concert-date.js";
 
 export default function (config) {
+  config.addLiquidFilter("lookupAddress", lookupAddress);
   config.addPassthroughCopy({ "src/assets": "assets", "src/media": "media" });
   config.addGlobalData("buildDate", () => bernDate());
 
