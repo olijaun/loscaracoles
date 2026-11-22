@@ -1,0 +1,27 @@
+---
+layout: base.liquid
+title: Flamenco-Links
+section: links
+description: Flamenco-Schulen, Musik- und Tanzgruppen, Festivals und weitere Adressen rund um Flamenco.
+permalink: /links/index.html
+---
+<main id="inhalt">
+  <section class="detail-intro" aria-labelledby="links-title">
+    <div class="wrap">
+      <h1 id="links-title">Flamenco-Links</h1>
+      <p class="detail-lead">Schulen, Gruppen und Festivals in Bern, in der Schweiz und darüber hinaus.</p>
+    </div>
+  </section>
+  <div class="wrap program flamenco-links">
+    {% for group in flamencoLinks %}
+      <section class="club-info" aria-labelledby="links-{{ forloop.index }}">
+        <h2 id="links-{{ forloop.index }}">{{ group.title | escape }}</h2>
+        <ul>
+          {% for link in group.links %}
+            <li><a href="{{ link.url | escape }}">{{ link.label | escape }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+</main>

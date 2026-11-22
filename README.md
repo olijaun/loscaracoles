@@ -1,7 +1,7 @@
 # Los Caracoles
 
 The public club website is built with Eleventy. Concerts are Markdown files in
-`src/concerts/`; the homepage, club page, listings, and concert detail pages
+`src/events/`; the homepage, club page, listings, and concert detail pages
 share the layout in `src/_includes/`.
 
 ## Local preview

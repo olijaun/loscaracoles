@@ -16,7 +16,7 @@ configure({
 function entries(...dates) {
   return dates.map((eventDate, index) => ({
     inputPath: `concert-${index}.md`,
-    url: `/konzerte/concert-${index}/`,
+    url: `/events/concert-${index}/`,
     data: { eventDate },
   }));
 }

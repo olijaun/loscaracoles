@@ -1,5 +1,6 @@
 ---
 title: Testkonzert
+organizer: Los Caracoles
 eventDate: 2026-11-22
 eventTime: 18:00
 doorsTime: 17:00

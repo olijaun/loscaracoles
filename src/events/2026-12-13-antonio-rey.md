@@ -1,5 +1,6 @@
 ---
 title: "Antonio Rey"
+organizer: Los Caracoles
 eventDate: "2026-12-13"
 eventTime: "19:00"
 doorsTime: "18:30"

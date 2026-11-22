@@ -1,0 +1,10 @@
+---
+title: "GRUPO ZAMBRA"
+organizer: "Los Caracoles"
+eventDate: "2000-10-21"
+venue: "Musikkeller Dampfzentrale Bern"
+---
+
+- Rocío González, Tanz
+- Rafael Segura, Gesang
+- Antonio Moreno Cortés, Gitarre

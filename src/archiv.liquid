@@ -1,14 +1,14 @@
 ---
 layout: base.liquid
-title: Konzertarchiv
+title: Veranstaltungsarchiv
 section: concerts
 permalink: /archiv/index.html
 ---
 <main id="inhalt">
   <section class="detail-intro">
     <div class="wrap">
-      <a class="back-link" href="{{ "/konzerte/" | url }}">Kommende Veranstaltungen</a>
-      <h1>Konzertarchiv</h1>
+      <a class="back-link" href="{{ "/events/" | url }}">Veranstaltungen</a>
+      <h1>Veranstaltungsarchiv</h1>
     </div>
   </section>
   <section class="program">
@@ -17,7 +17,7 @@ permalink: /archiv/index.html
       {% if events.size > 0 %}
         {% include "event-list.liquid" %}
       {% else %}
-        <p>Zurzeit sind keine Konzerte im Archiv.</p>
+        <p>Zurzeit sind keine Veranstaltungen im Archiv.</p>
       {% endif %}
     </div>
   </section>

@@ -1,13 +1,13 @@
 ---
 layout: base.liquid
-title: Kommende Veranstaltungen
+title: Veranstaltungen
 section: concerts
-permalink: /konzerte/index.html
+permalink: /events/index.html
 ---
 <main id="inhalt">
   <section class="detail-intro">
     <div class="wrap">
-      <h1>Kommende Veranstaltungen</h1>
+      <h1>Veranstaltungen</h1>
     </div>
   </section>
   <section class="program">
@@ -15,7 +15,7 @@ permalink: /konzerte/index.html
       {% assign events = collections.concerts | upcoming: buildDate %}
       {% include "upcoming.liquid" %}
       {% if events.size > 0 %}
-        <a class="text-link archive-link" href="{{ "/archiv/" | url }}">Vergangene Konzerte</a>
+        <a class="text-link archive-link" href="{{ "/archiv/" | url }}">Vergangene Veranstaltungen</a>
       {% endif %}
     </div>
   </section>

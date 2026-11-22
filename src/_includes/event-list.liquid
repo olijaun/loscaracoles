@@ -3,8 +3,13 @@
     <li{% if upcoming %} data-concert-date="{{ concert.eventDate }}"{% endif %}>
       <time datetime="{{ concert.eventDate }}">{{ concert.eventDate | concertDate }}</time>
       <div>
-        <strong><a href="{{ concert.url | url }}">{{ concert.data.title | escape }}</a></strong>
-        <span>{{ concert.data.venue | escape }}{% if concert.data.eventTime and concert.data.eventTime != empty %} · {{ concert.data.eventTime | escape }} Uhr{% endif %}</span>
+        <strong class="event-title">
+          {% if concert.data.organizer == "Los Caracoles" %}
+            <img class="event-organizer-logo" src="{{ "/assets/logo69.png" | url }}" alt="" width="28" height="28">
+          {% endif %}
+          <a href="{{ concert.url | url }}">{{ concert.data.title | escape }}</a>
+        </strong>
+        <span>{{ concert.data.venue | escape }}{% if concert.data.eventTime and concert.data.eventTime != empty %} · {{ concert.data.eventTime | escape }} Uhr{% endif %}{% if concert.data.organizer and concert.data.organizer != empty %} · {{ concert.data.organizer | escape }}{% endif %}</span>
       </div>
     </li>
   {% endfor %}

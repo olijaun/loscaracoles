@@ -9,9 +9,12 @@ layout: base.liquid
     <div class="detail-intro">
       <div class="wrap">
         {% if isPast %}
-          <a class="back-link" href="{{ "/archiv/" | url }}">Zum Konzertarchiv</a>
+          <a class="back-link" href="{{ "/archiv/" | url }}">Zum Veranstaltungsarchiv</a>
         {% else %}
-          <a class="back-link" href="{{ "/konzerte/" | url }}">Kommende Veranstaltungen</a>
+          <a class="back-link" href="{{ "/events/" | url }}">Veranstaltungen</a>
+        {% endif %}
+        {% if organizer and organizer != empty %}
+          <p class="label">{{ organizer | escape }}</p>
         {% endif %}
         <h1>{{ title | escape }}</h1>
         <p class="detail-lead"><time datetime="{{ concertDay }}">{{ eventDate | concertDate }}</time>{% if eventTime and eventTime != empty %} · {{ eventTime | escape }} Uhr{% endif %}{% if doorsTime and doorsTime != empty %} · Türöffnung {{ doorsTime | escape }} Uhr{% endif %} · {{ venue | escape }}{% if address and address != empty %}<br>{{ address | escape }}{% endif %}</p>

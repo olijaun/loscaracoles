@@ -8,14 +8,14 @@ content:
   - name: events
     label: Veranstaltungen
     type: collection
-    path: src/concerts
+    path: src/events
     format: yaml-frontmatter
     filename: "{eventDate}-{primary}.md"
-    exclude: [concerts.11tydata.js]
+    exclude: [events.11tydata.js]
     subfolders: false
     view:
       primary: title
-      fields: [title, eventDate, venue]
+      fields: [title, eventDate, venue, organizer]
       sort: eventDate
       order: desc
     fields:
@@ -23,6 +23,12 @@ content:
         label: Veranstaltungstitel
         type: string
         required: true
+      - name: organizer
+        label: Veranstalter
+        type: select
+        required: true
+        options:
+          values: [Los Caracoles, Fremdveranstaltung]
       - name: eventDate
         label: Datum
         type: date

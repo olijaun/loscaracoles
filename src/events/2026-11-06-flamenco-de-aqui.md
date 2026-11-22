@@ -1,6 +1,7 @@
 ---
-title: "Patio Flamenco"
-eventDate: "2026-11-05"
+title: "Flamenco de aqui!"
+organizer: Los Caracoles
+eventDate: "2026-11-06"
 eventTime: "20:00"
 venue: "ONO Das Kulturlokal, Bern"
 ---

@@ -1,0 +1,168 @@
+[
+  {
+    "title": "Flamenco-Schulen in Bern",
+    "links": [
+      {
+        "label": "Flamenco Gitarrenunterricht Bern",
+        "url": "https://flamencogitarre-unterricht.ch"
+      },
+      {
+        "label": "Flamencoschule Isabel Amaya",
+        "url": "https://www.flamencoschule-isabelamaya.ch/"
+      },
+      {
+        "label": "Flamencoschule Antonio Perujo",
+        "url": "https://www.antonioperujo.com"
+      },
+      {
+        "label": "flamencokellerbern.ch",
+        "url": "https://www.flamencokellerbern.ch"
+      },
+      {
+        "label": "flamencotanz-la-ursula.ch",
+        "url": "https://www.flamencotanz-la-ursula.ch"
+      },
+      {
+        "label": "flamenco-manuela.ch",
+        "url": "https://www.flamenco-manuela.ch"
+      },
+      {
+        "label": "alicialopez-flamenco.com",
+        "url": "https://www.alicialopez-flamenco.com"
+      },
+      {
+        "label": "taller-flamenco.ch",
+        "url": "https://www.taller-flamenco.ch"
+      }
+    ]
+  },
+  {
+    "title": "Allgemein",
+    "links": [
+      {
+        "label": "centroflamencojerez.com",
+        "url": "https://www.centroflamencojerez.com"
+      },
+      {
+        "label": "deflamenco.com",
+        "url": "https://www.deflamenco.com"
+      },
+      {
+        "label": "flamenco-portal.de",
+        "url": "https://www.flamenco-portal.de"
+      },
+      {
+        "label": "horizonte-festival.de",
+        "url": "https://www.horizonte-festival.de"
+      }
+    ]
+  },
+  {
+    "title": "Flamenco-Schulen in der Schweiz",
+    "links": [
+      {
+        "label": "flamenco-rosa.ch",
+        "url": "https://www.flamenco-rosa.ch"
+      },
+      {
+        "label": "flamenco-sh.ch",
+        "url": "https://flamenco-sh.ch/"
+      },
+      {
+        "label": "ladinabucher.com",
+        "url": "https://www.ladinabucher.com/"
+      },
+      {
+        "label": "al-andalus.ch",
+        "url": "https://www.al-andalus.ch/"
+      }
+    ]
+  },
+  {
+    "title": "Flamenco-Musik und Tanzgruppen",
+    "links": [
+      {
+        "label": "alfredopalacios.ch",
+        "url": "https://www.alfredopalacios.ch"
+      },
+      {
+        "label": "contrabando.ch",
+        "url": "https://www.contrabando.ch"
+      },
+      {
+        "label": "flamenco-show.ch",
+        "url": "https://www.flamenco-show.ch"
+      },
+      {
+        "label": "madruga-flamenca.de",
+        "url": "https://www.madruga-flamenca.de"
+      },
+      {
+        "label": "nickperrin.net",
+        "url": "https://www.nickperrin.net"
+      },
+      {
+        "label": "coro-rociero.ch",
+        "url": "https://www.coro-rociero.ch"
+      },
+      {
+        "label": "flamencos-enroute.com",
+        "url": "https://www.flamencos-enroute.com"
+      },
+      {
+        "label": "cuadro-flamenco.ch",
+        "url": "https://www.cuadro-flamenco.ch"
+      },
+      {
+        "label": "lacuadrilla.ch",
+        "url": "https://www.lacuadrilla.ch"
+      },
+      {
+        "label": "arte-flamenco.ch",
+        "url": "http://www.arte-flamenco.ch"
+      }
+    ]
+  },
+  {
+    "title": "Kommerzielle Links",
+    "links": [
+      {
+        "label": "bailaflamenco.ch",
+        "url": "https://www.bailaflamenco.ch"
+      },
+      {
+        "label": "webtone.ch",
+        "url": "https://www.webtone.ch"
+      },
+      {
+        "label": "mundo-flamenco.com",
+        "url": "https://www.mundo-flamenco.com"
+      },
+      {
+        "label": "flamencoexport.com",
+        "url": "https://www.flamencoexport.com"
+      },
+      {
+        "label": "guiaflama.com",
+        "url": "https://www.guiaflama.com"
+      }
+    ]
+  },
+  {
+    "title": "Festivals",
+    "links": [
+      {
+        "label": "festivaldejerez.es",
+        "url": "https://www.festivaldejerez.es"
+      },
+      {
+        "label": "labienal.com",
+        "url": "https://www.labienal.com"
+      },
+      {
+        "label": "flamencofestivalbern.ch",
+        "url": "https://www.flamencofestivalbern.ch"
+      }
+    ]
+  }
+]
