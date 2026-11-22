@@ -1,0 +1,50 @@
+---
+layout: base.liquid
+title: Flamenco in Bern
+permalink: /index.html
+---
+  <main id="inhalt">
+    <section class="hero" aria-labelledby="intro">
+      <div class="wrap hero-inner">
+        <p class="label">Peña Flamenca Los Caracoles</p>
+        <h1 id="intro">Flamenco<br><em>in Bern.</em></h1>
+        <p class="intro">Tanz, Gesang und Gitarre live erleben. Seit 1990 bringen wir Flamenco auf die Berner Bühnen.</p>
+        <a class="button copper" href="{{ "/konzerte/" | url }}">Konzerte entdecken</a>
+      </div>
+    </section>
+    <section id="programm" class="program" aria-labelledby="program-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="program-title">Kommende Konzerte</h2>
+          <a class="text-link" href="{{ "/konzerte/" | url }}">Alle Konzerte</a>
+        </div>
+        {% assign events = collections.concerts | upcoming: buildDate | slice: 0, 3 %}
+        {% include "upcoming.liquid" %}
+      </div>
+    </section>
+    <section id="verein" class="club" aria-labelledby="club-title">
+      <div class="wrap club-grid">
+        <div>
+          <p class="label">Unser Verein</p>
+          <h2 id="club-title">Eine Peña<br>für Bern.</h2>
+        </div>
+        <div class="club-copy">
+          <p>Los Caracoles ist ein Treffpunkt für Menschen, die Flamenco und die spanische Kultur lieben. Wir laden Künstlerinnen und Künstler aus der Schweiz, Spanien und weiteren Ländern nach Bern ein.</p>
+          <p>Seit dem Zusammenschluss mit flamencovivo 2015 gehört auch das gemeinsame Praktizieren von Flamenco zu unserem Vereinszweck.</p>
+          <a class="text-link" href="{{ "/verein/" | url }}">Mehr über den Verein</a>
+        </div>
+      </div>
+    </section>
+    <section id="mitmachen" class="join" aria-labelledby="join-title">
+      <div class="wrap club-grid">
+        <div><h2 id="join-title">Mach mit.</h2></div>
+        <div>
+          <p>Werde Mitglied und unterstütze Flamenco in Bern. Im Newsletter erfährst du von unseren Veranstaltungen.</p>
+          <div class="actions">
+            <a class="button dark" href="https://www.loscaracoles.ch/mitgliedschaft/">Mitglied werden</a>
+            <a class="text-link" href="https://www.loscaracoles.ch/">Zum Newsletter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,11 @@
+/node_modules/
+/_site/
+/loscaracoles-prototype/
+/.idea/
+*.iml
+/.agents/
+/.codex/
+/.aws/
+/guitarra.jpg
+/logo69.png
+.env*

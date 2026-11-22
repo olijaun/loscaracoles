@@ -1,0 +1,24 @@
+---
+layout: base.liquid
+title: Konzertarchiv
+section: concerts
+permalink: /archiv/index.html
+---
+<main id="inhalt">
+  <section class="detail-intro">
+    <div class="wrap">
+      <a class="back-link" href="{{ "/konzerte/" | url }}">Kommende Konzerte</a>
+      <h1>Konzertarchiv</h1>
+    </div>
+  </section>
+  <section class="program">
+    <div class="wrap">
+      {% assign events = collections.concerts | past: buildDate %}
+      {% if events.size > 0 %}
+        {% include "event-list.liquid" %}
+      {% else %}
+        <p>Zurzeit sind keine Konzerte im Archiv.</p>
+      {% endif %}
+    </div>
+  </section>
+</main>

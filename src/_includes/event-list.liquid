@@ -1,0 +1,11 @@
+<ul class="lineup event-list">
+  {% for concert in events %}
+    <li{% if upcoming %} data-concert-date="{{ concert.eventDate }}"{% endif %}>
+      <time datetime="{{ concert.eventDate }}">{{ concert.eventDate | concertDate }}</time>
+      <div>
+        <strong><a href="{{ concert.url | url }}">{{ concert.data.title | escape }}</a></strong>
+        <span>{{ concert.data.venue | escape }}{% if concert.data.eventTime and concert.data.eventTime != empty %} · {{ concert.data.eventTime | escape }} Uhr{% endif %}</span>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
