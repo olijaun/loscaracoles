@@ -45,15 +45,20 @@ content:
         required: true
       - name: address
         label: Adresse
+        description: "Strasse, Hausnummer, PLZ und Ort. Für Schweizer Adressen wird die Karte automatisch gefunden."
         type: string
       - name: latitude
         label: Breitengrad für die Karte
+        description: "Optional. Beide Koordinaten eingeben, um die Kartenposition festzulegen."
+        required: false
         type: string
-        pattern: '^-?[0-9]+(\.[0-9]+)?$'
+        pattern: '^(-?[0-9]+(\.[0-9]+)?)?$'
       - name: longitude
         label: Längengrad für die Karte
+        description: "Optional. Beide Koordinaten eingeben, um die Kartenposition festzulegen."
+        required: false
         type: string
-        pattern: '^-?[0-9]+(\.[0-9]+)?$'
+        pattern: '^(-?[0-9]+(\.[0-9]+)?)?$'
       - name: image
         label: Konzertbild
         type: image
@@ -62,9 +67,10 @@ content:
         type: string
       - name: ticketUrl
         label: Ticketlink
-        description: "Vollständige URL mit https://"
+        description: "Optional. Falls vorhanden, vollständige URL mit https:// eingeben."
         type: string
-        pattern: '^https?://.+'
+        required: false
+        pattern: '^(https?://.+)?$'
       - name: body
         label: Beschreibung
         type: rich-text

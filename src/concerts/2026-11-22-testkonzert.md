@@ -5,8 +5,6 @@ eventTime: 18:00
 doorsTime: 17:00
 venue: Oliver
 address: Monbijoustrasse 71, 3007 Bern
-latitude: "46.9"
-longitude: "7.4359786"
 image: /media/mwrrcf8s-pk0mku4k.png
 ticketUrl: http://eventfrog.ch
 ---

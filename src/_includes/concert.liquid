@@ -35,6 +35,16 @@ layout: base.liquid
             <p><a href="https://www.openstreetmap.org/?mlat={{ latitude | escape }}&amp;mlon={{ longitude | escape }}#map=17/{{ latitude | escape }}/{{ longitude | escape }}">Grössere Karte auf OpenStreetMap</a>
               · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap-Mitwirkende</a></p>
           </section>
+        {% elsif address and address != empty %}
+          <section class="concert-map" aria-labelledby="anreise">
+            <h2 id="anreise">Anreise</h2>
+            <div data-address-map="{{ address | escape }}" data-venue="{{ venue | escape }}">
+              <button class="button copper" type="button" hidden>Karte anzeigen</button>
+              <p role="status" hidden></p>
+            </div>
+            <p><a href="https://www.openstreetmap.org/search?query={{ address | url_encode }}">Adresse auf OpenStreetMap suchen</a></p>
+            <script type="module" src="{{ "/assets/address-map.js" | url }}"></script>
+          </section>
         {% endif %}
         {% if ticketUrl and ticketUrl != empty and isPast == false %}
           <p><a class="button copper" href="{{ ticketUrl | escape }}">Tickets</a></p>
