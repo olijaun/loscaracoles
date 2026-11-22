@@ -25,21 +25,23 @@ button.addEventListener("click", async () => {
       origins: "address",
       searchText: container.dataset.address.replace(/,/g, " ").replace(/\s+/g, " ").trim(),
       sr: "4326",
+      geometryFormat: "geojson",
       limit: "5",
     });
     const response = await fetch(search, { signal: AbortSignal.timeout(8000) });
     if (!response.ok) throw new Error("Address lookup failed");
-    const { results } = await response.json();
+    const { features } = await response.json();
     const address = normalizeAddress(container.dataset.address);
-    const match = results?.find(({ attrs }) =>
-      typeof attrs?.label === "string" && normalizeAddress(attrs.label) === address
+    const match = features?.find(({ properties, geometry }) =>
+      geometry?.type === "Point" && typeof properties?.label === "string" &&
+      normalizeAddress(properties.label) === address
     );
     if (!match) {
       status.textContent = "Keine eindeutige Adresse gefunden. Nutze den Link zur Adresssuche.";
       button.disabled = false;
       return;
     }
-    const { lat, lon } = match.attrs;
+    const [lon, lat] = match.geometry.coordinates ?? [];
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) throw new Error("Address coordinates missing");
 
     const embed = new URL("https://www.openstreetmap.org/export/embed.html");
@@ -57,7 +59,8 @@ button.addEventListener("click", async () => {
     status.textContent = "Karte geöffnet.";
     button.hidden = true;
     container.append(frame, credit);
-  } catch {
+  } catch (error) {
+    console.warn("OpenStreetMap address lookup failed:", error);
     status.textContent = "Die Karte konnte nicht geladen werden. Nutze den Link zur Adresssuche.";
     button.disabled = false;
   }
