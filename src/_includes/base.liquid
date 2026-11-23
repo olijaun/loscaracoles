@@ -3,9 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ description | default: "Flamenco-Veranstaltungen und Vereinsleben in Bern." | escape }}">
+  {% capture eventDescription %}{% if eventDate %}{{ title }} am {{ eventDate | concertDate }}{% if venue %} · {{ venue }}{% endif %}. Informationen zur Veranstaltung im Kalender von Los Caracoles.{% endif %}{% endcapture %}
+  {% assign pageDescription = description | default: eventDescription | default: "Flamenco-Veranstaltungen und Vereinsleben in Bern." %}
+  {% capture pageTitle %}{{ title }} · Los Caracoles{% endcapture %}
+  <meta name="description" content="{{ pageDescription | escape }}">
   <meta name="theme-color" content="#301713">
-  <title>{{ title | escape }} · Los Caracoles</title>
+  <title>{{ pageTitle | escape }}</title>
+  {% if noindex or seo.staging %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+  {% if seo.origin != empty %}
+    {% assign publicUrl = page.url | url | prepend: seo.origin %}
+    {% assign shareImage = image | default: "/assets/guitarra.jpg" %}
+    {% unless shareImage contains "://" %}
+      {% assign shareImage = shareImage | url | prepend: seo.origin %}
+    {% endunless %}
+    <link rel="canonical" href="{{ publicUrl | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Peña Flamenca Los Caracoles">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:title" content="{{ pageTitle | escape }}">
+    <meta property="og:description" content="{{ pageDescription | escape }}">
+    <meta property="og:url" content="{{ publicUrl | escape }}">
+    <meta property="og:image" content="{{ shareImage | escape }}">
+    {% if imageAlt %}
+      <meta property="og:image:alt" content="{{ imageAlt | escape }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+  {% endif %}
   <link rel="stylesheet" href="{{ "/assets/style.css" | url }}">
 </head>
 <body>
@@ -53,3 +78,4 @@
   </footer>
 </body>
 </html>
+

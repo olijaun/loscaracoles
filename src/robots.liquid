@@ -1,0 +1,9 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+Disallow:
+{% if seo.origin and seo.origin != empty and seo.staging == false %}
+Sitemap: {{ "/sitemap.xml" | url | prepend: seo.origin }}
+{% endif %}

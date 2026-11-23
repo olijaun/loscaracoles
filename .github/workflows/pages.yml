@@ -39,6 +39,7 @@ jobs:
       - run: npm test
       - run: npm run build
         env:
+          PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v4
         with:

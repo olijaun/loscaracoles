@@ -1,5 +1,6 @@
 ---
 title: "Flamencoabend (Beispiel)"
+noindex: true
 organizer: Fremdveranstaltung
 eventDate: "2026-12-19"
 eventTime: "20:00"
