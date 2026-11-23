@@ -129,7 +129,7 @@ h3 { font-size: clamp(1.5rem, 1.25rem + 1vw, 2.2rem); line-height: 1.2; letter-s
 .lineup li { display: grid; grid-template-columns: 6rem 1fr; align-items: baseline; gap: .75rem; padding-block: 1.15rem; }
 .lineup li + li { border-top: 1px solid var(--divider); }
 .lineup time { color: var(--wine); font-weight: 700; }
-.lineup strong { font-size: 1.2rem; display: block; }
+.event-list .event-title { font: 700 1.2rem/1.2 "DM Sans", system-ui, sans-serif; letter-spacing: normal; margin: 0; }
 .club { background: var(--ink); color: var(--paper); }
 .club .label { color: var(--copper-light); }
 .club-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2.5rem; }
@@ -277,8 +277,9 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
   border-top: 3px solid var(--copper);
   background: var(--paper);
 }
-.home-events .event-title {
+.home-events .event-list .event-title {
   font-family: var(--serif);
+  font-weight: 600;
   font-size: clamp(1.35rem, 1.15rem + .7vw, 1.8rem);
   line-height: 1.2;
   margin-bottom: .35rem;

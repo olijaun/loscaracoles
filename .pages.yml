@@ -89,6 +89,7 @@ content:
         required: false
       - name: imageAlt
         label: Alternativtext zum Bild
+        description: "Beschreibe kurz, was das Bild vermittelt. Lass das Feld bei rein dekorativen Bildern leer. Wichtige Angaben eines Plakats gehören auch in die Beschreibung."
         type: string
       - name: ticketUrl
         label: Ticketlink

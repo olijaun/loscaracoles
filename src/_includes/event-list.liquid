@@ -1,8 +1,18 @@
+{% assign eventHeading = "h2" %}
+{% if preview %}{% assign eventHeading = "h3" %}{% endif %}
 <ul class="lineup event-list">
   {% for concert in events %}
     <li{% if upcoming %} data-concert-date="{{ concert.lastDate }}"{% endif %}>
       <div class="event-date-line">
-        <time datetime="{{ concert.eventDate }}">{{ concert.eventDate | concertDate }}</time>
+        <time datetime="{{ concert.eventDate }}">
+          {% if upcoming %}
+            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align: -.125em">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M7 3v4m10-4v4M3 10h18"/>
+            </svg>
+          {% endif %}
+          {{ concert.eventDate | concertDate }}
+        </time>
         {% if concert.data.organizer and concert.data.organizer != empty %}
           <span class="event-organizer">
             {{ concert.data.organizer | escape }}
@@ -16,9 +26,9 @@
         {% if concert.data.image and concert.data.image != empty %}
           <img class="event-list-image" src="{{ concert.data.image | url | escape }}" alt="{{ concert.data.imageAlt | default: "" | escape }}" loading="lazy" decoding="async">
         {% endif %}
-        <strong class="event-title">
+        <{{ eventHeading }} class="event-title">
           <a href="{{ concert.url | url }}">{{ concert.data.title | escape }}</a>
-        </strong>
+        </{{ eventHeading }}>
         <span>{{ concert.data.venue | escape }}{% if concert.data.eventTime and concert.data.eventTime != empty %} · {{ concert.data.eventTime | escape }} Uhr{% endif %}</span>
         {% if concert.data.summary and concert.data.summary != empty %}
           <p class="event-summary">{{ concert.data.summary | escape }}</p>

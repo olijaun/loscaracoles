@@ -1,5 +1,5 @@
 <div data-upcoming-concerts>
-  {% include "event-list.liquid", upcoming: true %}
+  {% include "event-list.liquid", upcoming: true, preview: preview %}
   <p data-no-concerts{% if events.size > 0 %} hidden{% endif %}>Zurzeit sind keine kommenden Veranstaltungen angekündigt. {% if page.url != "/events/" or events.size == 0 %}<a href="{{ "/archiv/" | url }}">Zum Archiv</a>{% endif %}</p>
 </div>
 <script type="module" src="{{ "/assets/upcoming.js" | url }}"></script>
