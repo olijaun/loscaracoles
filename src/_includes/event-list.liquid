@@ -1,6 +1,6 @@
 <ul class="lineup event-list">
   {% for concert in events %}
-    <li{% if upcoming %} data-concert-date="{{ concert.eventDate }}"{% endif %}>
+    <li{% if upcoming %} data-concert-date="{{ concert.lastDate }}"{% endif %}>
       <div class="event-date-line">
         <time datetime="{{ concert.eventDate }}">{{ concert.eventDate | concertDate }}</time>
         {% if concert.data.organizer and concert.data.organizer != empty %}

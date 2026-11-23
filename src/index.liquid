@@ -13,7 +13,7 @@ permalink: /index.html
         <a class="button copper" href="#programm">Veranstaltungen entdecken</a>
       </div>
     </section>
-    {% assign events = collections.concerts | upcoming: buildDate | slice: 0, 3 %}
+    {% assign events = collections.concerts | upcoming: buildDate | slice: 0, 2 %}
     {% include "upcoming-section.liquid", preview: true %}
     <section id="verein" class="club" aria-labelledby="club-title">
       <div class="wrap club-grid">

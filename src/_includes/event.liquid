@@ -3,7 +3,8 @@ layout: base.liquid
 ---
 {% assign concertDay = eventDate | dateISO %}
 {% assign isPast = false %}
-{% if concertDay < buildDate %}{% assign isPast = true %}{% endif %}
+{% assign lastDay = endDate | dateISO | default: concertDay %}
+{% if lastDay < buildDate %}{% assign isPast = true %}{% endif %}
 <main id="inhalt">
   <article>
     <div class="detail-intro">
@@ -18,9 +19,39 @@ layout: base.liquid
             <p class="label">{{ organizer | escape }}</p>
           {% endif %}
           <h1>{{ title | escape }}</h1>
-          <p class="detail-lead"><time datetime="{{ concertDay }}">{{ eventDate | concertDate }}</time>{% if eventTime and eventTime != empty %} · {{ eventTime | escape }} Uhr{% endif %}{% if doorsTime and doorsTime != empty %} · Türöffnung {{ doorsTime | escape }} Uhr{% endif %} · {{ venue | escape }}{% if address and address != empty %}<br>{{ address | escape }}{% endif %}</p>
+          <dl class="event-facts">
+            <dt>Datum</dt>
+            <dd><time datetime="{{ concertDay }}">{{ eventDate | concertDate }}</time></dd>
+            {% if doorsTime and doorsTime != empty %}
+              <dt>Türöffnung</dt>
+              <dd><time datetime="{{ doorsTime | escape }}">{{ doorsTime | escape }}</time> Uhr</dd>
+            {% endif %}
+            {% if eventTime and eventTime != empty %}
+              <dt>Beginn</dt>
+              <dd><time datetime="{{ eventTime | escape }}">{{ eventTime | escape }}</time> Uhr</dd>
+            {% endif %}
+            {% if lastDay != concertDay %}
+              <dt>Ende</dt>
+              <dd>
+                <time datetime="{{ lastDay }}">{{ lastDay | concertDate }}</time>
+                {% if endTime and endTime != empty %}
+                  <span class="event-end-time"><time datetime="{{ endTime | escape }}">{{ endTime | escape }}</time> Uhr</span>
+                {% endif %}
+              </dd>
+            {% elsif endTime and endTime != empty %}
+              <dt>Ende</dt>
+              <dd><time datetime="{{ endTime | escape }}">{{ endTime | escape }}</time> Uhr</dd>
+            {% endif %}
+            <dt>Ort</dt>
+            <dd>
+              {{ venue | escape }}
+              {% if address and address != empty %}
+                <span class="event-address">{{ address | escape }}</span>
+              {% endif %}
+            </dd>
+          </dl>
           {% if ticketUrl and ticketUrl != empty and isPast == false %}
-            <p><a class="button copper" href="{{ ticketUrl | escape }}">Zum Ticketshop</a></p>
+            <p class="event-ticket"><a class="text-link" href="{{ ticketUrl | escape }}">Zum Ticketshop</a></p>
           {% endif %}
         </div>
         {% if image and image != empty %}
@@ -31,6 +62,9 @@ layout: base.liquid
     <div class="wrap program">
       <div class="concert-body">
         {{ content }}
+        {% if ticketUrl and ticketUrl != empty and isPast == false %}
+          <p><a class="button copper" href="{{ ticketUrl | escape }}">Zum Ticketshop</a></p>
+        {% endif %}
         {% assign mapLatitude = latitude %}
         {% assign mapLongitude = longitude %}
         {% if mapLatitude == nil or mapLongitude == nil or mapLatitude == empty or mapLongitude == empty %}
@@ -46,7 +80,7 @@ layout: base.liquid
           <section class="concert-map" aria-labelledby="anreise">
             <h2 id="anreise">Anreise</h2>
             <div data-event-map>
-              <button class="button copper" type="button" hidden>Karte anzeigen</button>
+              <button class="map-link" type="button" hidden>Karte anzeigen</button>
               <p data-map-notice hidden>Beim Laden der Karte wird deine IP-Adresse an OpenStreetMap übermittelt.</p>
               <template>
                 <iframe title="OpenStreetMap: {{ venue | escape }}" referrerpolicy="no-referrer"

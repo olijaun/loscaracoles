@@ -4,6 +4,7 @@ summary: "Der zweifache Latin-Grammy-Gewinner Antonio Rey verbindet virtuose Fla
 organizer: Los Caracoles
 eventDate: "2026-12-13"
 eventTime: "19:00"
+endTime: "20:30"
 doorsTime: "18:30"
 venue: "Aula im PROGR"
 address: "Waisenhausplatz 30, 3011 Bern"
