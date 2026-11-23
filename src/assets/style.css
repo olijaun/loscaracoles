@@ -210,7 +210,12 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 .newsletter-form input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--copper); background: white; color: var(--ink); font: inherit; }
 .newsletter-form button { justify-self: start; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
 .newsletter-form p { margin: 0; font-size: 1rem; }
-.newsletter-names { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: .75rem; }
+.newsletter-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  align-items: end;
+  gap: .75rem;
+}
 .newsletter-names div { display: grid; gap: .35rem; }
 .newsletter-honeypot { position: absolute; left: -5000px; width: 1px; }
 
@@ -236,9 +241,39 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 .header-social a:hover { background: var(--copper-light); color: var(--ink); }
 .header-social svg { width: 1.3rem; height: 1.3rem; }
 
-@media (max-width: 760px) {
+.header-menu {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.menu-toggle { display: none; }
+
+@media (max-width: 54rem) {
   .top { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
-  .top nav[aria-label="Hauptnavigation"] { grid-row: 2; grid-column: 1 / -1; }
+  .menu-toggle:not([hidden]) {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    min-height: 2.75rem;
+    padding: .4rem .65rem;
+    border: 1px solid var(--copper-light);
+    border-radius: .25rem;
+    background: transparent;
+    color: var(--paper);
+    font: inherit;
+    cursor: pointer;
+  }
+  .header-menu {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: .75rem;
+    padding-top: .5rem;
+    border-top: 1px solid var(--copper-light);
+  }
+  .menu-toggle:not([hidden])[aria-expanded="false"] + .header-menu { display: none; }
+  .header-menu nav:first-child { display: grid; gap: .1rem; }
 }
 
 .join .volunteer-note { margin-top: 1.5rem; margin-bottom: 0; }
@@ -301,7 +336,6 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 
 @media (max-width: 24rem) {
   .wrap { width: calc(100% - 2rem); }
-  .top { grid-template-columns: minmax(0, 1fr); }
   .event-facts { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
   .event-facts dd + dt { margin-top: .55rem; }
 }
