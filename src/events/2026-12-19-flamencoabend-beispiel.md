@@ -1,5 +1,6 @@
 ---
 title: "Flamencoabend (Beispiel)"
+summary: "Ein fiktiver Flamencoabend mit Gitarre, Gesang und Tanz."
 noindex: true
 organizer: Fremdveranstaltung
 eventDate: "2026-12-19"

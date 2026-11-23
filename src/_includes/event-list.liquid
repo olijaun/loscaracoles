@@ -1,15 +1,28 @@
 <ul class="lineup event-list">
   {% for concert in events %}
     <li{% if upcoming %} data-concert-date="{{ concert.eventDate }}"{% endif %}>
-      <time datetime="{{ concert.eventDate }}">{{ concert.eventDate | concertDate }}</time>
+      <div class="event-date-line">
+        <time datetime="{{ concert.eventDate }}">{{ concert.eventDate | concertDate }}</time>
+        {% if concert.data.organizer and concert.data.organizer != empty %}
+          <span class="event-organizer">
+            {{ concert.data.organizer | escape }}
+            {% if concert.data.organizer == "Los Caracoles" %}
+              <img class="event-organizer-logo" src="{{ "/assets/logo69.png" | url }}" alt="" width="28" height="28">
+            {% endif %}
+          </span>
+        {% endif %}
+      </div>
       <div>
+        {% if concert.data.image and concert.data.image != empty %}
+          <img class="event-list-image" src="{{ concert.data.image | url | escape }}" alt="{{ concert.data.imageAlt | default: "" | escape }}" loading="lazy" decoding="async">
+        {% endif %}
         <strong class="event-title">
-          {% if concert.data.organizer == "Los Caracoles" %}
-            <img class="event-organizer-logo" src="{{ "/assets/logo69.png" | url }}" alt="" width="28" height="28">
-          {% endif %}
           <a href="{{ concert.url | url }}">{{ concert.data.title | escape }}</a>
         </strong>
-        <span>{{ concert.data.venue | escape }}{% if concert.data.eventTime and concert.data.eventTime != empty %} · {{ concert.data.eventTime | escape }} Uhr{% endif %}{% if concert.data.organizer and concert.data.organizer != empty %} · {{ concert.data.organizer | escape }}{% endif %}</span>
+        <span>{{ concert.data.venue | escape }}{% if concert.data.eventTime and concert.data.eventTime != empty %} · {{ concert.data.eventTime | escape }} Uhr{% endif %}</span>
+        {% if concert.data.summary and concert.data.summary != empty %}
+          <p class="event-summary">{{ concert.data.summary | escape }}</p>
+        {% endif %}
       </div>
     </li>
   {% endfor %}

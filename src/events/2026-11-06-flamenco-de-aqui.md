@@ -1,5 +1,6 @@
 ---
 title: "Flamenco de aqui!"
+summary: "Flamenco aus der Schweiz mit Tanz, Gesang und Gitarre am 3. Berner Flamenco Festival."
 organizer: Los Caracoles
 eventDate: "2026-11-06"
 eventTime: "20:00"

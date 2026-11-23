@@ -1,5 +1,6 @@
 ---
 title: Testkonzert
+summary: "Testeintrag für die Veranstaltungsansicht."
 noindex: true
 organizer: Los Caracoles
 eventDate: 2026-11-22

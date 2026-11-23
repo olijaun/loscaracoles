@@ -1,0 +1,17 @@
+<section id="programm" class="program home-events" aria-labelledby="program-title">
+  <div class="wrap">
+    <div class="section-head">
+      {% if preview %}
+        <h2 id="program-title">Veranstaltungen</h2>
+      {% else %}
+        <h1 id="program-title">Veranstaltungen</h1>
+      {% endif %}
+    </div>
+    {% include "upcoming.liquid" %}
+    {% if preview %}
+      <a class="button dark archive-link" href="{{ "/events/" | url }}">Alle Veranstaltungen</a>
+    {% elsif events.size > 0 %}
+      <a class="button dark archive-link" href="{{ "/archiv/" | url }}">Vergangene Veranstaltungen</a>
+    {% endif %}
+  </div>
+</section>

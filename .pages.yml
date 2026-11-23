@@ -23,6 +23,13 @@ content:
         label: Veranstaltungstitel
         type: string
         required: true
+      - name: summary
+        label: Kurzbeschreibung
+        description: "Ein bis zwei kurze Sätze für die Veranstaltungsliste."
+        type: text
+        required: true
+        options:
+          maxlength: 220
       - name: organizer
         label: Veranstalter
         type: select
@@ -68,6 +75,7 @@ content:
       - name: image
         label: Veranstaltungsbild
         type: image
+        required: false
       - name: imageAlt
         label: Alternativtext zum Bild
         type: string

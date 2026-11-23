@@ -1,5 +1,6 @@
 ---
 title: "CUADRO FLAMENCO RAFAEL SEGURA"
+summary: "Pepa Valdivia, Tanz · Carin Segura, Tanz · Rafael Segura, Gesang und weitere Mitwirkende."
 organizer: "Los Caracoles"
 eventDate: "2003-02-15"
 eventTime: "21:00"

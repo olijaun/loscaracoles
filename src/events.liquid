@@ -6,18 +6,6 @@ section: concerts
 permalink: /events/index.html
 ---
 <main id="inhalt">
-  <section class="detail-intro">
-    <div class="wrap">
-      <h1>Veranstaltungen</h1>
-    </div>
-  </section>
-  <section class="program">
-    <div class="wrap">
-      {% assign events = collections.concerts | upcoming: buildDate %}
-      {% include "upcoming.liquid" %}
-      {% if events.size > 0 %}
-        <a class="text-link archive-link" href="{{ "/archiv/" | url }}">Vergangene Veranstaltungen</a>
-      {% endif %}
-    </div>
-  </section>
+  {% assign events = collections.concerts | upcoming: buildDate %}
+  {% include "upcoming-section.liquid" %}
 </main>

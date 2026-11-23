@@ -1,5 +1,6 @@
 ---
 title: "CUADRO FLAMENCO"
+summary: "Antonio Cortés, Cante · Melinda Sala, Baile · Juan Carlos \"El Picante\", Guitarra und weitere Mitwirkende."
 organizer: "Los Caracoles"
 eventDate: "1998-01-23"
 venue: "Flamenco Keller Münstergasse"
