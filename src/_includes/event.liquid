@@ -7,27 +7,29 @@ layout: base.liquid
 <main id="inhalt">
   <article>
     <div class="detail-intro">
-      <div class="wrap">
-        {% if isPast %}
-          <a class="back-link" href="{{ "/archiv/" | url }}">Zum Veranstaltungsarchiv</a>
-        {% else %}
-          <a class="back-link" href="{{ "/events/" | url }}">Veranstaltungen</a>
-        {% endif %}
-        {% if organizer and organizer != empty %}
-          <p class="label">{{ organizer | escape }}</p>
-        {% endif %}
-        <h1>{{ title | escape }}</h1>
-        <p class="detail-lead"><time datetime="{{ concertDay }}">{{ eventDate | concertDate }}</time>{% if eventTime and eventTime != empty %} · {{ eventTime | escape }} Uhr{% endif %}{% if doorsTime and doorsTime != empty %} · Türöffnung {{ doorsTime | escape }} Uhr{% endif %} · {{ venue | escape }}{% if address and address != empty %}<br>{{ address | escape }}{% endif %}</p>
-        {% if ticketUrl and ticketUrl != empty and isPast == false %}
-          <p><a class="button copper" href="{{ ticketUrl | escape }}">Zum Ticketshop</a></p>
+      <div class="wrap{% if image and image != empty %} event-intro-grid{% endif %}">
+        <div>
+          {% if isPast %}
+            <a class="back-link" href="{{ "/archiv/" | url }}">Zum Veranstaltungsarchiv</a>
+          {% else %}
+            <a class="back-link" href="{{ "/events/" | url }}">Veranstaltungen</a>
+          {% endif %}
+          {% if organizer and organizer != empty %}
+            <p class="label">{{ organizer | escape }}</p>
+          {% endif %}
+          <h1>{{ title | escape }}</h1>
+          <p class="detail-lead"><time datetime="{{ concertDay }}">{{ eventDate | concertDate }}</time>{% if eventTime and eventTime != empty %} · {{ eventTime | escape }} Uhr{% endif %}{% if doorsTime and doorsTime != empty %} · Türöffnung {{ doorsTime | escape }} Uhr{% endif %} · {{ venue | escape }}{% if address and address != empty %}<br>{{ address | escape }}{% endif %}</p>
+          {% if ticketUrl and ticketUrl != empty and isPast == false %}
+            <p><a class="button copper" href="{{ ticketUrl | escape }}">Zum Ticketshop</a></p>
+          {% endif %}
+        </div>
+        {% if image and image != empty %}
+          <img class="concert-image" src="{{ image | url | escape }}" alt="{{ imageAlt | default: "" | escape }}">
         {% endif %}
       </div>
     </div>
     <div class="wrap program">
       <div class="concert-body">
-        {% if image and image != empty %}
-          <img class="concert-image" src="{{ image | url | escape }}" alt="{{ imageAlt | default: "" | escape }}">
-        {% endif %}
         {{ content }}
         {% assign mapLatitude = latitude %}
         {% assign mapLongitude = longitude %}

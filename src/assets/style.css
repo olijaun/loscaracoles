@@ -175,7 +175,13 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 .event-list li[hidden] { display: none; }
 .archive-link { display: inline-block; margin-top: 1.5rem; }
 .concert-body { max-width: 44rem; }
-.concert-image { display: block; max-width: 100%; height: auto; margin-bottom: 2rem; }
+.event-intro-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: center; gap: clamp(1.5rem, 5vw, 4rem); }
+.event-intro-grid h1 { font-size: clamp(2.8rem, 6vw, 6rem); overflow-wrap: anywhere; }
+.concert-image { display: block; width: 100%; max-width: 32rem; max-height: 26rem; object-fit: contain; object-position: center; justify-self: end; }
+@media (max-width: 48rem) {
+  .event-intro-grid { grid-template-columns: 1fr; }
+  .concert-image { justify-self: start; }
+}
 @media (max-width: 520px) {
   .event-list li { grid-template-columns: 1fr; gap: .2rem; }
 }
@@ -266,4 +272,16 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 
 @media (max-width: 40rem) {
   .home-events .event-list { grid-template-columns: 1fr; }
+  .event-list .event-list-image {
+    width: 100%;
+    max-width: 16rem;
+    height: auto;
+    max-height: 9rem;
+  }
+  .event-intro-grid .concert-image {
+    width: auto;
+    height: auto;
+    max-width: min(100%, 18rem);
+    max-height: 13rem;
+  }
 }
