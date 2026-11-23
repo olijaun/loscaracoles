@@ -272,16 +272,4 @@ nav a[aria-current="page"] { color: var(--copper-light); text-decoration: underl
 
 @media (max-width: 40rem) {
   .home-events .event-list { grid-template-columns: 1fr; }
-  .event-list .event-list-image {
-    width: 100%;
-    max-width: 16rem;
-    height: auto;
-    max-height: 9rem;
-  }
-  .event-intro-grid .concert-image {
-    width: auto;
-    height: auto;
-    max-width: min(100%, 18rem);
-    max-height: 13rem;
-  }
 }
